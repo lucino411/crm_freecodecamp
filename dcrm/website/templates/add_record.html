@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="col-md-6 offset-md-3">
+    <h1>Add Record</h1>
+    <br>
+    <form method="POST" action="{% url 'add_record' %}">{% csrf_token %}
+        {{ form.as_p}}      
+
+<!-- La etiqueta {{ form.as_p }} en Django renderiza automáticamente todos los campos del formulario en forma de párrafos
+HTML. Cada campo se representa como un párrafo que contiene la etiqueta <label> y el campo de entrada correspondiente.
+Si deseas utilizar {{ form.as_p }} en tus plantillas, debes definir un archivo forms.py en tu aplicación de Django. Este
+archivo contendrá la definición de tus formularios utilizando las clases proporcionadas por Django, como forms.ModelForm
+o forms.Form. Aquí es donde puedes definir los campos del formulario, los widgets, las validaciones y otras opciones
+personalizadas.
+
+Si estás utilizando DataTables.js para representar tu formulario, no necesitarás usar {{ form.as_p }}. En su lugar,
+tendrás más control sobre cómo se representan y manejan los datos en tu tabla. -->
+
+
+
+        <br>
+        <button type="submit" class="btn btn-secondary">Agregar Registro</button>
+        <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+    </form>
+
+
+
+</div>
+
+
+{% endblock %}

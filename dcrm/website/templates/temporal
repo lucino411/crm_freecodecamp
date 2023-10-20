@@ -1,0 +1,8 @@
+def update_record(request, pk):
+    if request.user.is_authenticated:
+        current_record = Record.objects.get(pk=pk)
+        form = AddRecordForm(request.POST or None, instance=current_record)
+        return render(request, 'update_record.html', {'form': form})
+    else:
+        messages.success(request, "You must be logged In to do that")
+        return redirect('home')

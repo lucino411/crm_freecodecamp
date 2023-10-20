@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="col-md-6 offset-md-3">
+    <h1>Update Record</h1>
+    <br>
+    <form method="POST">{% csrf_token %}
+        {{ form.as_p}}
+
+<!-- La falta de un atributo action en el formulario no impide que se envíen los datos al servidor. Cuando un formulario no
+tiene un atributo action, la solicitud se envía a la misma URL que se utilizó para cargar la página que contiene el
+formulario. Esto significa que cuando un usuario hace clic en el botón de envío en el formulario, se envían los datos
+del formulario al mismo URL que se cargó originalmente, es decir, la vista update_record en views.py.
+
+Por lo tanto, en la vista update_record en views.py, el formulario se inicializa con los datos proporcionados en la
+solicitud POST, si están disponibles. Cuando se inicializa el formulario con request.POST, los datos enviados desde el
+formulario se pasan al formulario para su procesamiento. De esta forma, los datos modificados o actualizados en el
+formulario se pasan a la vista update_record y se pueden procesar en la función, incluso sin un atributo action
+explícito en el formulario. -->
+
+
+
+        <br>
+        <button type="submit" class="btn btn-secondary">Update Registro</button>
+    </form>
+
+
+
+</div>
+
+
+{% endblock %}
